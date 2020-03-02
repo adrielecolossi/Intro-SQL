@@ -38,14 +38,14 @@ INSERT INTO departamento(nome,coddepartamento)
 INSERT INTO departamento (nome)
  VALUES ('pesquisa')
 
---Exercícíos:
+--LISTA DE EXERCICIOS
 
---1- Inserir 4 departamentos: TI, RH, Administração e Almox.
+--QUESTÃO 1- Inserir 4 departamentos: TI, RH, Administração e Almox.
 
 INSERT INTO departamento (nome)
   VALUES('TI'), ('RH'), ('Administração'), ('Almox')
 
---2- Insira um funcionário com nome João Matias, cpf 01243565478 e que nasceu em 28/5/1995. Ele deve trabalhar no departamento TI.
+--QUESTÃO 2- Insira um funcionário com nome João Matias, cpf 01243565478 e que nasceu em 28/5/1995. Ele deve trabalhar no departamento TI.
 
 SELECT * FROM funcionario
 
@@ -59,7 +59,7 @@ SELECT * FROM funcionario
 INSERT INTO funcionario (codDepartamento, CPF, Nome, Salario, DataNascimento, Sexo)
   VALUES (4, '01243565478', 'João Matias', 1080,  '28/5/1995', 'M')
 
---3- Insira 3 funcionários (com dados diferentes) em cada departamento criado no exercício 1.
+--QUESTÃO 3- Insira 3 funcionários (com dados diferentes) em cada departamento criado no exercício 1.
 
 --Ensino era o de teste!
 INSERT INTO funcionario (codDepartamento, CPF, Nome, Salario, DataNascimento, Sexo)
@@ -72,7 +72,7 @@ INSERT INTO funcionario (codDepartamento, CPF, Nome, Salario, DataNascimento, Se
 INSERT INTO funcionario (codDepartamento, CPF, Nome, Salario, DataNascimento, Sexo)
   VALUES (7, '01243583678', 'Marina Fernandes', 1083,  '07/07/2002', 'F')
 
---4- Crio o departamento "P&D" e após aloque João Matias no P&D.
+--QUESTÃO 4- Crio o departamento "P&D" e após aloque João Matias no P&D.
 
 INSERT INTO departamento (nome)
 VALUES('P&D')
@@ -87,41 +87,41 @@ WHERE codDepartamento=4
    SELECT * FROM funcionario
 
 
---5- Altere o nome do departamento "Almox" para "Almoxarifado".
+--QUESTÃO 5- Altere o nome do departamento "Almox" para "Almoxarifado".
 
 SELECT * FROM departamento
 
 UPDATE departamento SET nome='Almoxarifado' WHERE nome='Almox'
 
 
---6- Em todos departamentos concatene a palavra "Depto " com o seu nome.
+--QUESTÃO 6- Em todos departamentos concatene a palavra "Depto " com o seu nome.
 
 
 UPDATE departamento SET nome='Depto ' || nome 
 
---7- Mostre todos funcionários homens que trabalham no departamento de TI ou RH.
+--QUESTÃO 7- Mostre todos funcionários homens que trabalham no departamento de TI ou RH.
 
 SELECT nome FROM funcionario WHERE sexo='M'
 
---8- Mostre apenas o nome e cpf dos funcionários com salários entre 2000 e 10000.
+--QUESTÃO 8- Mostre apenas o nome e cpf dos funcionários com salários entre 2000 e 10000.
 
 SELECT nome,  CPF FROM funcionario WHERE Salario>=2000 AND Salario<=10000
 
---9- Liste o nome e idade de todos funcionários.
+--QUESTÃO 9- Liste o nome e idade de todos funcionários.
 
 SELECT nome, extract(year from age(datanascimento)) FROM funcionario
 
 -- o extract e o year são para pegarmos apenas o ano, não os meses nem os dias junto.
 
 
---10- Mostre todos os funcionários do departamento 03.
+--QUESTÃO 10- Mostre todos os funcionários do departamento 03.
 
 UPDATE funcionario SET codDepartamento=3
 WHERE codDepartamento=6 
 SELECT nome FROM funcionario WHERE codDepartamento=3
 
 
---11- Exclua todos funcinários com mais de 50 anos.
+--QUESTÃO 11- Exclua todos funcinários com mais de 50 anos.
 
 
 INSERT INTO funcionario (codDepartamento, CPF, Nome, Salario, DataNascimento, Sexo)
@@ -131,7 +131,7 @@ SELECT nome, extract(YEAR FROM age(DataNascimento)) FROM funcionario
 
 DELETE FROM funcionario WHERE EXTRACT(YEAR FROM age(DataNascimento))>= 50
 
---12- Faça um aumento de 10% para todas a mulheres.
+--QUESTÃO 12- Faça um aumento de 10% para todas a mulheres.
 
 UPDATE funcionario SET salario= salario*1.1 WHERE sexo= 'F'
 
@@ -147,6 +147,16 @@ SELECT date_part('year', age(date '05/07/1986'))
 --todos eles tem "máscaras", pattern, então temos HH, HH12, HH24, SSSS, US, YYYY (por exemplo, é o ano com 4 digitos)
 
 SELECT to_char(date '05/07/1986', 'dd, mon yyyy')
+
+
+
+
+
+
+
+
+
+
 
 
 
